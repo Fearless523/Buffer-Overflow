@@ -1,4 +1,4 @@
-ALL PYTHON SCRIPTS WERE CREATED BY ME. ANY EXACT MATCH IS PURELY A COINCIDENCE
+ALL PYTHON SCRIPTS WERE CREATED BY FEARLESS. ANY EXACT MATCH IS PURELY A COINCIDENCE
 
 use nc -nv *ip* *port*, then use test.py, changing the IP address to match the victim machine.
 use the spike.spk script, changing "TRUN " or "STATS " to whatever may need to be tested
