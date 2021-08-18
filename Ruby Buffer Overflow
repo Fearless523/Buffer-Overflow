@@ -1,4 +1,5 @@
 use pry --simple-prompt to open ruby, then use 
+	require 'socket'
 	s=TCPSocket.new("ip address",port) 
 	*NOTE* I will have to do this command every so often, it will be obvious when to.
 To interact with the service 
