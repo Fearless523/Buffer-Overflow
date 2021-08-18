@@ -4,7 +4,7 @@ A Buffer Overflow checklist, with plug-and-play pre-written Python, and Ruby scr
 This makes many Buffer Overflow attacks as simple as 1, 2, 3. 
 
 ## DOWNLOAD INSTRUCTIONS:
-sudo git clone https://github.com/Fearless523/BoF.git
+sudo git clone https://github.com/Fearless523/Buffer-Overflow.git
 
 ## USAGE:
 Step 1: use nano/cat/gedit, or whatever your favorite text editor is to bring up BoFGuide.txt; this will bring up the step-by-step guide
